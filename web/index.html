@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Simulasi FL Visual — 1 Server, 3 Klien</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="shell">
+  <!-- Header -->
+  <header class="header">
+    <div class="header-left">
+      <div class="badge">FLOWER FL</div>
+      <h1>Simulasi Federated Learning</h1>
+      <div class="subtitle">1 Server &bull; 3 Klien &bull; Interaksi Visual</div>
+    </div>
+    <div class="header-right">
+      <div class="chip" id="chip-mode">Demo Mode</div>
+      <button class="btn btn-primary" id="btn-start">Mulai Simulasi</button>
+      <button class="btn btn-ghost" id="btn-stop">Berhenti</button>
+      <button class="btn btn-ghost" id="btn-reset">Reset</button>
+    </div>
+  </header>
+
+  <!-- Main canvas area -->
+  <main class="main">
+    <div class="canvas-wrap">
+      <canvas id="simCanvas" width="1100" height="700"></canvas>
+      <div class="overlay">
+        <div class="round-badge" id="roundBadge">Ronde: <span id="roundNum">0</span> / 5</div>
+        <div class="status" id="statusText">Siap. Klik Mulai Simulasi.</div>
+      </div>
+    </div>
+
+    <!-- Right panel: metrics + log -->
+    <aside class="sidebar">
+      <div class="panel metrics-panel">
+        <h2>Metrik</h2>
+        <div class="metric">
+          <span class="metric-label">Loss Global</span>
+          <span class="metric-value" id="val-loss">-</span>
+        </div>
+        <div class="metric">
+          <span class="metric-label">Akurasi Global</span>
+          <span class="metric-value" id="val-acc">-</span>
+        </div>
+        <div class="metric">
+          <span class="metric-label">Klien Aktif</span>
+          <span class="metric-value" id="val-clients">0 / 3</span>
+        </div>
+        <div class="metric">
+          <span class="metric-label">Fase</span>
+          <span class="metric-value" id="val-phase">Idle</span>
+        </div>
+      </div>
+
+      <div class="panel log-panel">
+        <h2>Log Interaksi</h2>
+        <div class="log" id="log">
+          <div class="log-entry log-info">Sistem siap. 1 server dan 3 klien terdeteksi.</div>
+        </div>
+      </div>
+
+      <div class="panel info-panel">
+        <h2>Tentang</h2>
+        <p class="small">
+          Visualisasi ini menggambarkan siklus Federated Learning:<br>
+          <strong>Server → Klien:</strong> distribusi model global<br>
+          <strong>Klien:</strong> pelatihan lokal<br>
+          <strong>Klien → Server:</strong> pengiriman update<br>
+          <strong>Server:</strong> agregasi (FedAvg)
+        </p>
+        <div class="hint">
+          <strong>Catatan:</strong> Ini adalah dasbor visual demo. Untuk simulasi
+          asli dengan Flower, jalankan <code>python run_simulation.py</code> dan buka
+          <code>flwr dashboard</code> (<code>http://localhost:8080</code>).
+        </div>
+      </div>
+    </aside>
+  </main>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

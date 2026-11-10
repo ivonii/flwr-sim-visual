@@ -1,0 +1,7 @@
+[
+  {"round": 1, "loss": 0.2439, "accuracy": 0.8268},
+  {"round": 2, "loss": 0.2381, "accuracy": 0.8450},
+  {"round": 3, "loss": 0.2326, "accuracy": 0.8750},
+  {"round": 4, "loss": 0.2274, "accuracy": 0.8900},
+  {"round": 5, "loss": 0.2223, "accuracy": 0.9100}
+]

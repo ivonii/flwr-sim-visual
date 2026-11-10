@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "flwr-sim-visual"
+version = "0.1.0"
+description = "Simulasi Federated Learning visual: 1 Server dan 3 Klien dengan Flower"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "flwr[simulation]",
+    "flask",
+]
+
+[tool.setuptools.packages.find]
+include = ["quickstart_numpy*"]
+
+[tool.flwr.app]
+publisher = "flwrlabs"
+
+[tool.flwr.app.components]
+serverapp = "quickstart_numpy.server_app:app"
+clientapp = "quickstart_numpy.client_app:app"

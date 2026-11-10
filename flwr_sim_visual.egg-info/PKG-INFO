@@ -1,0 +1,68 @@
+Metadata-Version: 2.4
+Name: flwr-sim-visual
+Version: 0.1.0
+Summary: Simulasi Federated Learning visual: 1 Server dan 3 Klien dengan Flower
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+Requires-Dist: flwr[simulation]
+Requires-Dist: flask
+
+# Simulasi Federated Learning Visual (1 Server + 3 Klien)
+
+Proyek ini menunjukkan simulasi Federated Learning menggunakan **Flower (flwr)**
+dengan **1 Server** dan **3 Klien**, dilengkapi dasbor web yang menampilkan
+interaksi visual antar node dalam bahasa Indonesia.
+
+## Struktur proyek
+
+```
+flwr-sim-visual
+├── pyproject.toml              # Metadata & komponen Flwr
+├── run_simulation.py           # Jalankan simulasi dengan 3 supernode
+├── quickstart_numpy/
+│   ├── __init__.py
+│   ├── task.py                 # Model NumPy, train, test, load_data
+│   ├── server_app.py           # ServerApp (FedAvg, 5 ronde)
+│   └── client_app.py           # ClientApp (3 klien)
+├── web/
+│   ├── index.html              # Dasbor visual interaksi
+│   ├── style.css
+│   └── app.js
+└── README.md
+```
+
+## Cara menjalankan simulasi asli (Flower)
+
+```bash
+pip install flwr[simulation] flask
+pip install -e .
+python run_simulation.py
+```
+
+## Cara menjalankan dasbor web visual
+
+Buka berkas berikut langsung di peramban web:
+
+```
+web/index.html
+```
+
+Tidak perlu instalasi tambahan untuk dasbor visual (demo mode). Dasbor ini
+menganimasikan aliran: Server → Klien (distribusi model), Klien melatih,
+Klien → Server (upload update), dan Server menggabungkan (aggregasi).
+
+## Flower Dashboard (resmi)
+
+Jalankan dasbor resmi Flower untuk memantau semua run:
+
+```bash
+flwr dashboard
+```
+
+Buka: `http://localhost:8080`
+
+## Catatan lingkungan
+
+Simulasi berbasis Ray memerlukan memori cukup. Jika terjadi error
+`object store memory`, jalankan pada mesin dengan RAM yang mencukukupi
+(>= 1 GB tersedia disarankan).

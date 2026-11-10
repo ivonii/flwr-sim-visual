@@ -1,0 +1,11 @@
+README.md
+pyproject.toml
+flwr_sim_visual.egg-info/PKG-INFO
+flwr_sim_visual.egg-info/SOURCES.txt
+flwr_sim_visual.egg-info/dependency_links.txt
+flwr_sim_visual.egg-info/requires.txt
+flwr_sim_visual.egg-info/top_level.txt
+quickstart_numpy/__init__.py
+quickstart_numpy/client_app.py
+quickstart_numpy/server_app.py
+quickstart_numpy/task.py
